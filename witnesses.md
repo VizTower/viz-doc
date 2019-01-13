@@ -165,7 +165,7 @@
 
 Процентная пропорция, по которой распределяется остаток от эмиссии(вся эмиссия - inflation_witness_percent) между пулом комитета и пулом наград. При этом inflation_ratio_committee_vs_reward_fund сначала идет в пул комитета, а потом в пул наград. 
 
-То есть если ``inflation_ratio_committee_vs_reward_fund = 60%``, то 60% направится в комитет, а 40% в на награды.
+Это значит, если ``inflation_ratio_committee_vs_reward_fund = 60%``, то 60% направится в комитет, а 40% на награды.
 
 <div id="inflation_recalc_period"></div>
 
@@ -173,4 +173,4 @@
 
 *Добавлено: 2.0.0*
 
-Количество дней, через которое блокчейн проверяет актуальность инфляционных параметров(inflation_witness_percent, inflation_ratio_committee_vs_reward_fund и inflation_recalc_period). Если делегаты изменили какой-то из этих параметров, то блокчейн юудет учитывать их не раньше чем через inflation_recalc_period с последнего обновления.
+Количество дней, через которое блокчейн проверяет актуальность инфляционных параметров(inflation_witness_percent, inflation_ratio_committee_vs_reward_fund и inflation_recalc_period). Если делегаты изменили какой-то из этих параметров, то блокчейн будет учитывать их не раньше чем через inflation_recalc_period с последнего обновления.
