@@ -19,7 +19,7 @@
 7. [max_curation_percent [устарел]](#max_curation_percent) - максимальный кураторский процент, который автор может выставить за пост;
 8. [bandwidth_reserve_below](#bandwidth_reserve_below) - максимальное количество акций аккаунта, при котором ему выделяется резервная пропускная способность;
 9. [bandwidth_reserve_percent](#bandwidth_reserve_percent) - процент резервирования пропускной способности от всего канала для аккаунтов с количестовм акций меньшим, чем bandwidth_reserve_below(в том числе и 0);
-10. [flag_energy_additional_cost](#flag_energy_additional_cost]) - процент дополнительной затраты энергии при отрицательном голосовании за посты;
+10. [flag_energy_additional_cost [устарел]](#flag_energy_additional_cost]) - процент дополнительной затраты энергии при отрицательном голосовании за посты;
 11. [vote_accounting_min_rshares](#vote_accounting_min_rshares) - Минимальное количество наградных акций, при которых награда будет болюше 0 акций;
 12. [committee_request_approve_min_percent](#committee_request_approve_min_percent) - минимальным процент от всех голосов отданный за заявку вркера, при котором заявка считается подтвержденной;
 13. [inflation_witness_percent](#inflation_witness_percent) - Процент от эмиссии, который распределяется между 21 делегатом, который вошел в раунд подписи блоков;
@@ -123,11 +123,13 @@
 
 <div id="flag_energy_additional_cost"></div>
 
-### flag_energy_additional_cost
+### flag_energy_additional_cost[устарел]
 
 *Добавлено: 1.0.0*
 
- Процент дополнительной затраты энергии при отрицательном голосовании за посты.
+*Устарел: 2.0.0*
+
+Процентный коэффициент дополнительной затраты энергии при отрицательном голосовании за посты.
 
 <div id="vote_accounting_min_rshares"></div>
 
