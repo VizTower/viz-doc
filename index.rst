@@ -3,8 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Добро пожаловать в руководство по VIZ!
+Viz.Doc - документация VIZ
 ===================================
+
+.. image:: ./img/viz_doc.png
 
 .. toctree::
    :maxdepth: 3
@@ -14,6 +16,7 @@
    economy
    witnesses
    bandwidth
+   vocabulary.md
 
 
 Указатели
