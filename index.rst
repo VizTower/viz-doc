@@ -17,6 +17,7 @@ Viz.Doc - документация VIZ
    witnesses
    bandwidth
    vocabulary.md
+   contacts.md
 
 
 Указатели
