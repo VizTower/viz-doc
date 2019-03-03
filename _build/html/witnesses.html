@@ -1,0 +1,415 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ru" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ru" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Делегаты &mdash; Документация viz.doc 1.0.0</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Пропускная способность" href="bandwidth.html" />
+    <link rel="prev" title="Экономика" href="economy.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> viz.doc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Разделы:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="idea.html">Что такое VIZ?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="economy.html">Экономика</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Делегаты</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Голосование за делегатов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Управление параметрами сети</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Подробное описание голосуемых параметров</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#account-creation-fee">account_creation_fee</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-account-delegation-ratio">create_account_delegation_ratio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-account-delegation-time">create_account_delegation_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#maximum-block-size">maximum_block_size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#min-delegation">min_delegation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#min-curation-percent">min_curation_percent [устарел]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#max-curation-percent">max_curation_percent [устарел]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bandwidth-reserve-below">bandwidth_reserve_below</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bandwidth-reserve-percent">bandwidth_reserve_percent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flag-energy-additional-cost">flag_energy_additional_cost[устарел]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vote-accounting-min-rshares">vote_accounting_min_rshares</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#committee-request-approve-min-percent">committee_request_approve_min_percent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inflation-witness-percent">inflation_witness_percent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inflation-ratio-committee-vs-reward-fund">inflation_ratio_committee_vs_reward_fund</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inflation-recalc-period">inflation_recalc_period</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bandwidth.html">Пропускная способность</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocabulary.html">Словарь</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contacts.html">Контакты</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">viz.doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Делегаты</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/witnesses.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>Делегаты<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+<p>Делегаты - это участники сети, которым члены DAO VIZ доверили ее поддержку: создание и подпись блоков, управление экономическими и другими параметрами, в том числе принятие хардфорков. Доверие к делегату выражается в количестве отданных за него голосов. При этом за один голос принимается один <a class="reference external" href="./economy.html#shares">Shares</a>. То есть чем больше доля аккаунта в DAO, тем выше его влияние на выборы.</p>
+<p>Деятельность делегатов разделена на раунды. За один раунд создается 21 блок с интервалом в 3 секунды, таким образом, продолжительность одного раунда составляет 63 секунды. В одном раунде могут принимать участие не более 21 делегата, которые в порядке очереди создают и подписывают новые блоки. За каждый созданный блок делегат получает награду в соответствии с <a class="reference external" href="./economy.html#emission">моделью эмиссии</a>. Один раунд включает 11 топ делегатов - тех, которые набрали наибольшее количество голосов и сменяются только в том случае, если кто-то набрал больше голосов, и 10 делегатов поддержки, которые периодически меняются местами с делегатами из очереди ожидания. Все делегаты, которые не вошли в текущий раунд, должны ждать нового, чтобы занять позицию предыдущего делегата поддержки. При этом длительность ожидания зависит от количества набранных делегатом голосов. По истечении времени делегаты из очереди ожидания меняются с делегатами поддержки.</p>
+<div id="vote"></div><div class="section" id="id2">
+<h2>Голосование за делегатов<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Проголосовать за делегатов можно двумя способами:</p>
+<ol class="simple">
+<li>Прямое голосование. При таком способе голосования каждый пользователь должен самостоятельно решать, за какого делегата отдать свой голос. При голосовании учитывается количество <a class="reference external" href="./economy.html#effective_shares">эффективных Shares</a>.</li>
+<li>Голосование через прокси. При таком способе голосования пользователи выбирают аккаунт-прокси, который будет решать, кому из делегатов отдать их голоса. В свою очередь, аккаунт-прокси может доверить голоса своих пользователя другому аккаунту-прокси. Стоит учитывать, что при таком способе голосования пользователи передают аккаунту-прокси только свои <a class="reference external" href="./economy.html#clear_shares">чистые Shares</a>.</li>
+</ol>
+<p>При голосовании отдать свой голос можно максимум за 100 делегатов одновременно. Кроме того, сила голоса распределяется равномерно между всеми ними (если избиратель проголосовал за 4 делегатов, то каждому достанется 25% от <a class="reference external" href="./economy.html#shares">Shares аккаунта</a>).</p>
+<div id="props"></div></div>
+<div class="section" id="id3">
+<h2>Управление параметрами сети<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Роль делегатов состоит в поддержке работоспособности сети и управлении ее параметрами. Делегаты могут управлять следующими параметрами:</p>
+<ol class="simple">
+<li>Принятие хардфорков;</li>
+<li><a class="reference external" href="#account_creation_fee">account_creation_fee</a> - минимальная стоимость создания нового аккаунта в <a class="reference external" href="./economy.html#viz">ликвидных токенах</a>;</li>
+<li><a class="reference external" href="#create_account_delegation_ratio">create_account_delegation_ratio</a> - коэффициент, который показывает во сколько раз больше нужно затратит токенов при создании аккаунта через делегирование <a class="reference external" href="./economy.html#shares">долевых токенов</a>, чем при создании за  <a class="reference external" href="./economy.html#viz">ликвидные токены</a> (<code class="docutils literal notranslate"><span class="pre">Shares</span> <span class="pre">=</span> <span class="pre">account_creation_fee</span> <span class="pre">*</span> <span class="pre">create_account_delegation_ratio</span></code>);</li>
+<li><a class="reference external" href="#create_account_delegation_time">create_account_delegation_time</a> - минимальный промежуток времени, по окончании которого пользователь может вернуть свои Shares, затраченные на создание аккаунта с помощью делегирования (при обычном делегировании доля может быть возвращена через 1 день);</li>
+<li><a class="reference external" href="#maximum_block_size">maximum_block_size</a> - максимальный размер блока;</li>
+<li><a class="reference external" href="#min_delegation">min_delegation</a> - минимальное количество делегируемых Shares;</li>
+<li><a class="reference external" href="#min_curation_percent">min_curation_percent [устарел]</a> - минимальный кураторский процент, который автор может выставить за пост;</li>
+<li><a class="reference external" href="#max_curation_percent">max_curation_percent [устарел]</a> - максимальный кураторский процент, который автор может выставить за пост;</li>
+<li><a class="reference external" href="#bandwidth_reserve_below">bandwidth_reserve_below</a> - максимальное количество Shares аккаунта, при котором ему выделяется резервная <a class="reference external" href="./bandwidth.html">пропускная способность</a>;</li>
+<li><a class="reference external" href="#bandwidth_reserve_percent">bandwidth_reserve_percent</a> - процент резервирования <a class="reference external" href="./bandwidth.html">пропускной способности</a> от всего канала для аккаунтов с количеством Shares меньшим, чем bandwidth_reserve_below (может быть равен 0);</li>
+<li><a class="reference external" href="#flag_energy_additional_cost%5D">flag_energy_additional_cost [устарел]</a> - процент дополнительной затраты энергии при отрицательном голосовании за посты;</li>
+<li><a class="reference external" href="#vote_accounting_min_rshares">vote_accounting_min_rshares</a> - Минимальное количество <a class="reference external" href="./economy.html#rshares">rShares</a>, при которых <a class="reference external" href="./economy.html#award">награда</a> будет больше 0 ;</li>
+<li><a class="reference external" href="#committee_request_approve_min_percent">committee_request_approve_min_percent</a> - минимальный процент от всех голосов, отданных за заявку в <a class="reference external" href="./economy.html#committee">комитете</a>, при котором она считается подтвержденной;</li>
+<li><a class="reference external" href="#inflation_witness_percent">inflation_witness_percent</a> - <a class="reference external" href="./economy.html#emission_ration">Процент от эмиссии</a>, который распределяется между 21 делегатом, который вошел в раунд подписи блоков;</li>
+<li><a class="reference external" href="#inflation_ratio_committee_vs_reward_fund">inflation_ratio_committee_vs_reward_fund</a> - Процентная пропорция, по которой распределяется остаток от эмиссии между пулом комитета и пулом наград;</li>
+<li><a class="reference external" href="#inflation_recalc_period">inflation_recalc_period</a> - Количество блоков, через которое блокчейн проверяет актуальность инфляционных параметров;</li>
+</ol>
+<p>Значение каждого пункта, кроме 1, считается истинным в соответствии с медианной выборкой. Для принятия хардфорка нужно подтверждение 17 делегатов в раунде.</p>
+<div id="props_desc"></div></div>
+<div class="section" id="id4">
+<h2>Подробное описание голосуемых параметров<a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Ниже представлена таблица типов, которые использует блокчейн:</p>
+<div id="props_desc_table"></div><table border="1" class="docutils">
+<thead>
+<tr>
+<th>Тип</th>
+<th>Пример</th>
+<th>Диапазон</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VIZ актив</td>
+<td>"1.000 VIZ"</td>
+<td>от 0.001 VIZ</td>
+<td>Количество <a href="./economy.html#viz">ликвидных токенов</a>. Строка с десятичным числом с не более чем 3 цифрами после точки и обязательной приписок VIZ через пробел. <br>Пример: "1.123 VIZ"</td>
+</tr>
+<tr>
+<td>SHARES актив</td>
+<td>"1.000000 SHARES"</td>
+<td>от 0.000001 SHARES</td>
+<td>Количество <a href="./economy.html#shares">долевых токенов</a>. Строка с десятичным числом с не более чем 6 цифрами после точки и обязательной приписок SHARES через пробел. <br>Пример: "1.123456 VIZ"</td>
+</tr>
+<tr>
+<td>rShares</td>
+<td>1000000</td>
+<td>от 1</td>
+<td>Количество микро<a href="./economy.html#shares">долевых токенов</a>. 1 = 0.000001 SHARES; 1000000 = 1.000000 SHARES. Цело число.</td>
+</tr>
+<tr>
+<td>Процент</td>
+<td>1000</td>
+<td>от 1 до 10000</td>
+<td>Процент в целом числовом формате. 0.01% = 1; 1% = 100; 100% = 10000;</td>
+</tr>
+<tr>
+<td>Целое</td>
+<td>1</td>
+<td></td>
+<td>Целое число</td>
+</tr>
+</tbody>
+</table><div id="account_creation_fee"></div><div class="section" id="account-creation-fee">
+<h3>account_creation_fee<a class="headerlink" href="#account-creation-fee" title="Ссылка на этот заголовок">¶</a></h3>
+<p><em>Добавлено: 1.0.0</em></p>
+<p><a class="reference external" href="#props_desc_table">Формат</a>: VIZ актив</p>
+<p>Чтобы стать держателем <a class="reference external" href="./economy.html#shares">долевого токена</a>, нужно зарегистрировать аккаунт. Аккаунт - это именной кошелек, на котором хранятся все средства пользователя. Регистрация не бесплатна, чтобы создать нового пользователя, кто-то из уже существующих членов DAO VIZ должен отправить транзакцию регистрации аккаунта и заплатить <a class="reference external" href="./economy.html#viz">ликвидные токены</a>, которые затем будут конвертированы в <a class="reference external" href="./economy.html#shares">долевые токены</a> нового аккаунта. Минимальное количество токенов, которое должен заплатить создатель, указаны в параметре <code class="docutils literal notranslate"><span class="pre">account_creation_fee</span></code>.</p>
+<div id="create_account_delegation_ratio"></div></div>
+<div class="section" id="create-account-delegation-ratio">
+<h3>create_account_delegation_ratio<a class="headerlink" href="#create-account-delegation-ratio" title="Ссылка на этот заголовок">¶</a></h3>
+<p><em>Добавлено: 1.0.0</em></p>
+<p><a class="reference external" href="#props_desc_table">Формат</a>: Целое</p>
+<p>Аккаунт может быть создан не только за ликвидные токены, но и с помощью делегирования части своих Shares новому аккаунту во время создания. В количественном соотношении создание такого аккаунта может быть дороже, но делегированную долю можно всегда вернуть.</p>
+<p>Этот параметр отвечает за то, во сколько раз больше нужно потратить токенов при создании аккаунта через делегирование доли (<code class="docutils literal notranslate"><span class="pre">Shares</span> <span class="pre">=</span> <span class="pre">account_creation_fee</span> <span class="pre">*</span> <span class="pre">create_account_delegation_ratio</span></code>).</p>
+</div>
+<div class="section" id="create-account-delegation-time">
+<h3>create_account_delegation_time<a class="headerlink" href="#create-account-delegation-time" title="Ссылка на этот заголовок">¶</a></h3>
+<p><em>Добавлено: 1.0.0</em></p>
+<p><a class="reference external" href="#props_desc_table">Формат</a>: Целое</p>
+<p>При создании аккаунта регистратор не может вернуть свою долю сразу, для этого ему придется ждать ровно столько секунд, сколько указано в <code class="docutils literal notranslate"><span class="pre">create_account_delegation_time</span></code>.</p>
+<div id="maximum_block_size"></div></div>
+<div class="section" id="maximum-block-size">
+<h3>maximum_block_size<a class="headerlink" href="#maximum-block-size" title="Ссылка на этот заголовок">¶</a></h3>
+<p><em>Добавлено: 1.0.0</em></p>
+<p><a class="reference external" href="#props_desc_table">Формат</a>: Целое</p>
+<p>Каждый блок может вмещать ограниченный размер информации в байтах. Голосуя за этот параметр, делегаты могут решать проблемы масштабируемости сети.</p>
+<div id="min_delegation"></div></div>
+<div class="section" id="min-delegation">
+<h3>min_delegation<a class="headerlink" href="#min-delegation" title="Ссылка на этот заголовок">¶</a></h3>
+<p><em>Добавлено: 1.0.0</em></p>
+<p><a class="reference external" href="#props_desc_table">Формат</a>: VIZ актив</p>
+<p>Пользователь не может делегировать другому аккаунту количество Shares меньшее, чем указано в <code class="docutils literal notranslate"><span class="pre">min_delegation</span></code>, в пересчете на ликвидные токены.</p>
+<div id="min_curation_percent"></div></div>
+<div class="section" id="min-curation-percent">
+<h3>min_curation_percent [устарел]<a class="headerlink" href="#min-curation-percent" title="Ссылка на этот заголовок">¶</a></h3>
+<p><em>Добавлено: 1.0.0</em></p>
+<p><em>Устарел: 2.0.0</em></p>
+<p><a class="reference external" href="#props_desc_table">Формат</a>: Процент</p>
+<p>Минимальный кураторский процент, который автор может выставить за пост.</p>
+<div id="max_curation_percent"></div></div>
+<div class="section" id="max-curation-percent">
+<h3>max_curation_percent [устарел]<a class="headerlink" href="#max-curation-percent" title="Ссылка на этот заголовок">¶</a></h3>
+<p><em>Добавлено: 1.0.0</em></p>
+<p><em>Устарел: 2.0.0</em></p>
+<p><a class="reference external" href="#props_desc_table">Формат</a>: Процент</p>
+<p>Максимальный кураторский процент, который автор может выставить за пост.</p>
+<div id="bandwidth_reserve_below"></div></div>
+<div class="section" id="bandwidth-reserve-below">
+<h3>bandwidth_reserve_below<a class="headerlink" href="#bandwidth-reserve-below" title="Ссылка на этот заголовок">¶</a></h3>
+<p><em>Добавлено: 1.0.0</em></p>
+<p><a class="reference external" href="#props_desc_table">Формат</a>: SHARES актив</p>
+<p>Если у аккаунта количество Shares меньше, чем показатель <code class="docutils literal notranslate"><span class="pre">bandwidth_reserve_below</span></code>, то ему выделяется дополнительная пропускная способность.</p>
+<div id="bandwidth_reserve_percent"></bandwidth_reserve_percent></div>
+<div class="section" id="bandwidth-reserve-percent">
+<h3>bandwidth_reserve_percent<a class="headerlink" href="#bandwidth-reserve-percent" title="Ссылка на этот заголовок">¶</a></h3>
+<p><em>Добавлено: 1.0.0</em></p>
+<p><a class="reference external" href="#props_desc_table">Формат</a>: Процент</p>
+<p>Процент,  указанный в <code class="docutils literal notranslate"><span class="pre">bandwidth_reserve_percent</span></code> от всей пропускной способности сети, будет зарезервирован для аккаунтов с количеством Shares меньшим, чем <code class="docutils literal notranslate"><span class="pre">bandwidth_reserve_below</span></code>.</p>
+<p>Если <code class="docutils literal notranslate"><span class="pre">bandwidth_reserve_percent</span></code> равен 0, то аккаунты с количеством Shares меньшим, чем  bandwidth_reserve_below, будут заблокированы.</p>
+<div id="flag_energy_additional_cost"></div></div>
+<div class="section" id="flag-energy-additional-cost">
+<h3>flag_energy_additional_cost[устарел]<a class="headerlink" href="#flag-energy-additional-cost" title="Ссылка на этот заголовок">¶</a></h3>
+<p><em>Добавлено: 1.0.0</em></p>
+<p><em>Устарел: 2.0.0</em></p>
+<p><a class="reference external" href="#props_desc_table">Формат</a>: Целое</p>
+<p>Процентный коэффициент дополнительной затраты энергии при отрицательном голосовании за посты.</p>
+<div id="vote_accounting_min_rshares"></div></div>
+<div class="section" id="vote-accounting-min-rshares">
+<h3>vote_accounting_min_rshares<a class="headerlink" href="#vote-accounting-min-rshares" title="Ссылка на этот заголовок">¶</a></h3>
+<p><em>Добавлено: 1.0.0</em></p>
+<p><a class="reference external" href="#props_desc_table">Формат</a>: rShares</p>
+<p>Минимальное количество rShares, при которых награда будет больше 0.</p>
+<p>Рассчитать rShares конкретного аккаунта можно по формуле</p>
+<p><code class="docutils literal notranslate"><span class="pre">rShares</span> <span class="pre">=</span> <span class="pre">(s</span> <span class="pre">*</span> <span class="pre">1000000)</span> <span class="pre">*</span> <span class="pre">e%</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">s</span></code> - количество эффективных Shares,
+<code class="docutils literal notranslate"><span class="pre">e</span></code> - процент от эффективных Shares и одновременно количество затрачиваемой энергии.</p>
+<p>Из формулы <code class="docutils literal notranslate"><span class="pre">s</span> <span class="pre">*</span> <span class="pre">1000000)</span></code> можно сделать вывод, что rShares считается в µShares(микроShares ).</p>
+<div id="committee_request_approve_min_percent"></div></div>
+<div class="section" id="committee-request-approve-min-percent">
+<h3>committee_request_approve_min_percent<a class="headerlink" href="#committee-request-approve-min-percent" title="Ссылка на этот заголовок">¶</a></h3>
+<p><em>Добавлено: 1.0.0</em></p>
+<p><a class="reference external" href="#props_desc_table">Формат</a>: Процент</p>
+<p>Минимальный процент от всех голосов, отданный за заявку воркера, при котором заявка считается подтвержденной(по умолчанию 1000).</p>
+<div id="inflation_witness_percent"></div></div>
+<div class="section" id="inflation-witness-percent">
+<h3>inflation_witness_percent<a class="headerlink" href="#inflation-witness-percent" title="Ссылка на этот заголовок">¶</a></h3>
+<p><em>Добавлено: 2.0.0</em></p>
+<p><a class="reference external" href="#props_desc_table">Формат</a>: Процент</p>
+<p>Процент от эмиссии, который распределяется между 21 делегатом, который вошел в раунд подписи блоков.</p>
+<div id="inflation_ratio_committee_vs_reward_fund"></div></div>
+<div class="section" id="inflation-ratio-committee-vs-reward-fund">
+<h3>inflation_ratio_committee_vs_reward_fund<a class="headerlink" href="#inflation-ratio-committee-vs-reward-fund" title="Ссылка на этот заголовок">¶</a></h3>
+<p><em>Добавлено: 2.0.0</em></p>
+<p><a class="reference external" href="#props_desc_table">Формат</a>: Целое</p>
+<p>Процентная пропорция, по которой распределяется остаток от эмиссии (вся эмиссия - inflation_witness_percent) между пулом комитета и пулом наград. При этом inflation_ratio_committee_vs_reward_fund сначала идет в пул комитета, а потом в пул наград.</p>
+<p>Это значит, если <code class="docutils literal notranslate"><span class="pre">inflation_ratio_committee_vs_reward_fund</span> <span class="pre">=</span> <span class="pre">60%</span></code>, то 60% направится в комитет, а 40% на награды.</p>
+<div id="inflation_recalc_period"></div></div>
+<div class="section" id="inflation-recalc-period">
+<h3>inflation_recalc_period<a class="headerlink" href="#inflation-recalc-period" title="Ссылка на этот заголовок">¶</a></h3>
+<p><em>Добавлено: 2.0.0</em></p>
+<p><a class="reference external" href="#props_desc_table">Формат</a>: Целое</p>
+<p>Количество блоков, через которое блокчейн проверяет актуальность инфляционных параметров (inflation_witness_percent, inflation_ratio_committee_vs_reward_fund). Если делегаты изменили какой-то из этих параметров, то блокчейн будет учитывать их не раньше, чем через inflation_recalc_period с последней проверки.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bandwidth.html" class="btn btn-neutral float-right" title="Пропускная способность" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="economy.html" class="btn btn-neutral float-left" title="Экономика" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ivanzar
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

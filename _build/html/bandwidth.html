@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ru" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ru" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Пропускная способность &mdash; Документация viz.doc 1.0.0</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Словарь" href="vocabulary.html" />
+    <link rel="prev" title="Делегаты" href="witnesses.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> viz.doc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Разделы:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="idea.html">Что такое VIZ?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="economy.html">Экономика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="witnesses.html">Делегаты</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Пропускная способность</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Чем отличается частичное резервирование от полного</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#viz">Как рассчитывается пропускная способность в VIZ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Как VIZ определяет коэффициент резервирования</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vocabulary.html">Словарь</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contacts.html">Контакты</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">viz.doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Пропускная способность</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/bandwidth.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>Пропускная способность<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+<p><strong>Примечание: пропускная способность измерятся в байт/shares. То есть показывает сколько байт вы можете отправить не за секунду, а за один долевой токен - Shares</strong></p>
+<p>Большинство блокчейн проектов заставляют пользователей платить за каждую операцию, чтобы ограничить спам и сделать его экономически невыгодным. Но VIZ не заставляет пользователей платить, он используют систему динамичного <a class="reference external" href="#diff">частичного резервирования</a>. При этой модели блокчейн автоматически подбирает коэффициент резервирования при разной нагрузке. Всякий раз, как происходит всплеск активности, блокчейн резко понижает пропускную способность каждого аккаунта. Когда всплеск окончен, и в пропускном канале освободилось место, блокчейн медленно увеличивает пропускную способность каждого пользователя.</p>
+<p>Каждый раз, когда пользователь подписывает транзакцию, она учитывается в его скользящей средней пропускной способности. Если скользящая пересекла лимит, то блокчейн не даст отправить эту транзакцию. В таком случае, транзакцию надо отложить, пока скользящая не опуститься ниже порогового значения.</p>
+<p>Так как информация от пользователя размещается в одном блоке, а не разбивается по нескольким, то невозможно увеличить время передачи данных, как это происходит в классических системах передачи информации (когда время передачи данных зависит от скорости пропускного канала), поэтому VIZ просто запрещает отправлять транзакцию. Получается, что пользователь не сразу испытывает неудобства, а сначала совершает операцию и потом сталкивается с проблемами, так же это значит, что пользователь не может увеличить скорость попадания транзакции в блокчейн, но может увеличить максимальный допустимый размер транзакции для своего аккаунта, если приобретет дополнительную долю в сети.</p>
+<p><img alt="_images/bandwidth_ru.png" src="_images/bandwidth_ru.png" /></p>
+<p>Данную модель, может быть, непросто понять с первого раза. Давайте рассмотрим аналогию. Возьмем пустую банку. Ее объем - это размер зарезервированной пропускной способности. Заполним банку наполовину водой, столько занимает одна транзакция. Теперь наденем на банку крышку с маленьким отверстием. Перевернем банку. Через некоторое время из нее вытечет половина объема воды. Перевернем банку обратно и сними крышку. Нальем еще воды, равный половине объема банки. У нас осталось 1/4 свободного пространства. Теперь, если мы захотим налить еще воды, объем которой равен половине объема банки, то нам нужно отлить не менее 1/4 от объема банки, но мы не можем вылить этот объем сразу, для этого нам нужно надеть крышку с дыркой и перевернуть банку. Таким образом, можно сразу занять водой требуемый объем банки, но чтобы освободить в ней еще места, придется ждать некоторое время. Так и с транзакциями. Можно быстро отправить транзакцию в блокейн, но для отправки еще одной потребуется время.</p>
+<div id="diff"></div><div class="section" id="id2">
+<h2>Чем отличается частичное резервирование от полного<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Давайте представим, что в VIZ используется система полного резервирования. Это значит, что каждый пользователь может использовать часть пропускного канала пропорционально его доли в сети. Но невозможно использовать блокчейн в одно и то же время, кроме того, многим не нужно занимать весь выделенный пропускной канал. Следовательно, часть сети будет простаивать и она не сможет показать весь свой потенциал.</p>
+<p>При частичном резервировании каждый отдельный пользователь может использовать больше пропускной способности, когда в сети не происходят активные транзакции. И меньшею во время пиковых нагрузок. В тоже время блокчейн будет использовать полное резервирование при очень сильных нагрузках. Основная сложность такой модели состоит в выборе коэффициента резервирования при разной нагрузки. Если для полного резервирования можно выставить коэффициент, равный 1, то для других ситуаций может быть множество решений. В следующей главе описано, как работает распределение пропускной способности в VIZ.</p>
+</div>
+<div class="section" id="viz">
+<h2>Как рассчитывается пропускная способность в VIZ<a class="headerlink" href="#viz" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Перед тем как читать дальше, обратите внимание на таблицу условных обозначений ниже.</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Условное обозначение</th>
+<th>Единица измерения</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bnew</td>
+<td>байт/shares</td>
+<td>Значение скользящей средней для пропускной способности, которое будет затрачено на данную транзакцию</td>
+</tr>
+<tr>
+<td>Bold</td>
+<td>байт/shares</td>
+<td>Значение для скользящей средней уже затраченной пропускной способности</td>
+</tr>
+<tr>
+<td>N</td>
+<td>байт</td>
+<td>Размер новой транзакции</td>
+</tr>
+<tr>
+<td>W</td>
+<td>секунды</td>
+<td>Количество секунд в неделе</td>
+</tr>
+<tr>
+<td>T</td>
+<td>секунды</td>
+<td>Разница между временем, когда была отправлена последняя транзакция и в данный момент</td>
+</tr>
+<tr>
+<td>R</td>
+<td>процент(%)</td>
+<td><a href="./witnesses.html#bandwidth_reserve_below">Процент выделенной пропускной способности для аккаунтов с малой долей в сети</a>. Этот параметр устанавливают делегаты</td>
+</tr>
+<tr>
+<td>C</td>
+<td>целое число</td>
+<td>Число активных аккаунтов(отправляли хотя бы одну транзакцию за 30 дней) с малой долей сети</td>
+</tr>
+<tr>
+<td>Smax</td>
+<td>Shares</td>
+<td>Объем доли конкретного аккаунта</td>
+</tr>
+<tr>
+<td>S</td>
+<td>Shares</td>
+<td>Объем доли конкретного аккаунта с учетом процента, выделенного для аккаунтов с малой долей сети.</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Shares</td>
+<td>Объем доли всех аккаунтов</td>
+</tr>
+<tr>
+<td>G</td>
+<td>байт</td>
+<td><a href="./witnesses.html#maximum_block_size">Максимальный размер блока</a>. Это параметр устанавливается делегатами</td>
+</tr>
+<tr>
+<td>K</td>
+<td>целое число</td>
+<td>Коэффициент резервирования пропускной способности от 1 до 2000</td>
+</tr>
+<tr>
+<td>L</td>
+<td>целое число</td>
+<td>Количество блоков, которое будет сгенерированно за неделю</td>
+</tr>
+<tr>
+<td>E</td>
+<td>байт/shares</td>
+<td><code>G * L * K</code> - максимальная пропускная способность при данной нагрузке</td>
+</tr>
+</tbody>
+</table><p><strong>Примечание: значение R устанавливают делегаты, они же определяют какой объем доли считать малым. Кроме того, делегаты могут запретить отправлять транзакции для участников с малым объемом доли.</strong></p>
+<p>Для каждого конкретного аккаунта устанавливается лимит пропускной способности <code class="docutils literal notranslate"><span class="pre">(S</span> <span class="pre">/</span> <span class="pre">M)</span> <span class="pre">*</span> <span class="pre">Е</span></code>, то есть пропорционально его доли в  сети. Причем, <code class="docutils literal notranslate"><span class="pre">S</span> <span class="pre">=</span> <span class="pre">Smax</span> <span class="pre">*</span> <span class="pre">(100%</span> <span class="pre">-</span> <span class="pre">R)</span></code> , если <code class="docutils literal notranslate"><span class="pre">Smax</span></code> считается нормальной, и  <code class="docutils literal notranslate"><span class="pre">S</span> <span class="pre">=</span> <span class="pre">M</span> <span class="pre">*</span> <span class="pre">R</span> <span class="pre">/</span> <span class="pre">C</span></code> для аккаунтов с малой долей. Это значит, что от аккаунтов с достаточным стеком отнимается часть пропускной способности и распределяется среди аккаунтов с малой долей в сети. Если <code class="docutils literal notranslate"><span class="pre">Bnew</span></code> превысит зарезервированное значение, то аккаунт не сможет отправить новую транзакцию. В свою очередь, <code class="docutils literal notranslate"><span class="pre">Bnew</span></code> вычисляется по следующей формуле:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Bnew</span> <span class="pre">=</span> <span class="pre">MAX(0,</span> <span class="pre">(W</span> <span class="pre">-</span> <span class="pre">T)</span> <span class="pre">*</span> <span class="pre">Bold</span> <span class="pre">/</span> <span class="pre">W)</span> <span class="pre">+</span> <span class="pre">N</span></code>.</p>
+<p>Из формулы следует, что чем больше прошло времени с последней транзакции, тем меньше будет <code class="docutils literal notranslate"><span class="pre">Bnew</span></code> и если последняя транзакция происходила семь дней назад, то <code class="docutils literal notranslate"><span class="pre">Bnew</span> <span class="pre">=</span> <span class="pre">0</span></code></p>
+<p><img alt="_images/bandwidth_viz_ru.png" src="_images/bandwidth_viz_ru.png" /></p>
+<div class="section" id="id3">
+<h3>Как VIZ определяет коэффициент резервирования<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Каждый раз, когда значение скользящего среднего размера блока больше чем 25% от максимального размера блока <code class="docutils literal notranslate"><span class="pre">G</span></code>, блокчейн уменьшает <code class="docutils literal notranslate"><span class="pre">К</span></code> в два раза. Когда нагрузка спала, блокчейн снова увеличивает <code class="docutils literal notranslate"><span class="pre">K</span></code>, прибавляя единицу каждую минуту. Снижение <code class="docutils literal notranslate"><span class="pre">K</span></code> в два раза гарантирует, что аккаунты, которые использовали меньше 50% от предыдущей зарезервированной пропускной способности, не будут задеты, если нагрузку не вызвали держатели очень большого стека.</p>
+<p>Формула расчета нового значения средней скользящей для размера блока:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Anew</span> <span class="pre">=</span> <span class="pre">(99</span> <span class="pre">*</span> <span class="pre">Aold</span> <span class="pre">+</span> <span class="pre">Q)</span> <span class="pre">/</span> <span class="pre">100</span></code></p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Условное обозначение</th>
+<th>Единица измерения</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Anew</td>
+<td>байт</td>
+<td>Новое значение скользящей средней для размера блока</td>
+</tr>
+<tr>
+<td>Aold</td>
+<td>байт</td>
+<td>Последнее значение скользящей средней для размера блока</td>
+</tr>
+<tr>
+<td>Q</td>
+<td>байт</td>
+<td>Размер нового блока</td>
+</tr>
+</tbody>
+</table><p><strong>Примечание: Если коэффициент резервирования постоянно падает ниже 100, то делегаты должны задуматься об увеличении пропускной способности сети, например увеличив максимальный размер блока.</strong></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="vocabulary.html" class="btn btn-neutral float-right" title="Словарь" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="witnesses.html" class="btn btn-neutral float-left" title="Делегаты" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ivanzar
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
