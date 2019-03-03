@@ -9,7 +9,7 @@ Viz.Doc - документация VIZ
 .. image:: ./img/viz_doc.png
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: -1
    :caption: Разделы:
 
    idea
@@ -18,8 +18,6 @@ Viz.Doc - документация VIZ
    bandwidth
    vocabulary.md
    contacts.md
-   hello <ide/viz-vs-bts>
-
 
 Указатели
 ==================
