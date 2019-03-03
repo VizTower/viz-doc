@@ -18,7 +18,6 @@ Viz.Doc - документация VIZ
    bandwidth
    vocabulary.md
    contacts.md
-   hello <idea/viz-vs-bts>
 
 
 Указатели
