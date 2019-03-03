@@ -19,6 +19,8 @@ Viz.Doc - документация VIZ
    vocabulary.md
    contacts.md
 
+   hello <idea/viz-vs-bts>
+
 
 Указатели
 ==================
