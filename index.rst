@@ -16,6 +16,7 @@ Viz.Doc - документация VIZ
    economy
    witnesses
    bandwidth
+   accounts.md
    vocabulary.md
    contacts.md
    hello <ide/viz-vs-bts>
