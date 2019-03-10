@@ -17,6 +17,7 @@ Viz.Doc - документация VIZ
    witnesses
    bandwidth
    accounts.md
+   invite.md
    vocabulary.md
    contacts.md
    hello <ide/viz-vs-bts>
