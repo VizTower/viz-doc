@@ -1,0 +1,15 @@
+# Оглавление
+
+* [Идея VIZ](idea.md)
+    * [Что такое VIZ?](idea.md#what-is-viz)
+    * [Чем VIZ отличается  от Ethereum, Bitcoin и других подобных проектов](idea.md#viz-vs-eth-vs-btc)
+    * [Чем VIZ отличается от BitShares](idea.md#viz-vs-bts)
+    * [Чем VIZ отличается от Golos и Steem](idea.md#viz-vs-steem-vs-golos)
+    * [Чем VIZ отличается от EOS](idea.md#viz-vs-eos)
+    * [](idea.md#)
+    * [](idea.md#)
+    * [](idea.md#)
+    * [](idea.md#)
+* [Part II](part2/README.md)
+    * [We love feedback](part2/feedback_please.md)
+    * [Better tools for authors](part2/better_tools.md)
