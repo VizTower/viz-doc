@@ -1,13 +1,13 @@
 # Оглавление
 
 * [Идея VIZ](idea.md)
-	* [Что такое VIZ?](idea.md#what-is-viz)
+    * [Что такое VIZ?](idea.md#what-is-viz)
     * [Чем VIZ отличается  от Ethereum, Bitcoin и других подобных проектов](idea.md#viz-vs-eth-vs-btc)
     * [Чем VIZ отличается от BitShares](idea.md#viz-vs-bts)
     * [Чем VIZ отличается от Golos и Steem](idea.md#viz-vs-steem-vs-golos)
     * [Чем VIZ отличается от EOS](idea.md#viz-vs-eos)
-    * [Кто поддерживает код VIZ ](idea.md#viz-code-support)
-    * [Кто запустил блокчейн VIZ](idea.md#who-launched-viz)
+	* [Кто поддерживает код VIZ ](idea.md#viz-code-support)
+	* [Кто запустил блокчейн VIZ](idea.md#who-launched-viz)
 * [Экономика](economy.md)
 	* [Экономика и управление](economy.md#viz-and-dao)
     * [Активы](economy.md#assets)
