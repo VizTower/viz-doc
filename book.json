@@ -3,16 +3,10 @@
 	"title": "Viz.Doc - Документация блокчейна VIZ",
 	"author": "Ivanzar",
 	"language": "ru",
+	"gitbook": ">=3.0.0",
 	"structure": {
 		"readme": "./README.md",
 		"summary": "./SUMMARY.md",
 		"glossary": "./GLOSSARY.md"
-	},
-	"plugins": ["toc"],
-    "pluginsConfig": {
-        "toc": {
-            "addClass": true,
-            "className": "toc"
-        }
-    }
+	}
 }
