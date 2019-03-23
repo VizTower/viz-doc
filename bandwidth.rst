@@ -185,4 +185,3 @@ Q                    байт              Размер нового блока
 
 .. |image0| image:: ./img/bandwidth_ru.png
 .. |image1| image:: ./img/bandwidth_viz_ru.png
-

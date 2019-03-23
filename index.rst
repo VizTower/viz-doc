@@ -17,7 +17,7 @@ Viz.Doc - документация VIZ
    witnesses
    bandwidth
    accounts
-   invite
+   check
    subscriptions
    escrow
    glossary
