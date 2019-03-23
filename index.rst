@@ -16,17 +16,10 @@ Viz.Doc - документация VIZ
    economy
    witnesses
    bandwidth
-   accounts.md
-   invite.md
-   subscriptions.md
-   vocabulary.md
-   contacts.md
-   hello <ide/viz-vs-bts>
+   accounts
+   invite
+   subscriptions
+   escrow
+   glossary
+   contacts
 
-
-Указатели
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
