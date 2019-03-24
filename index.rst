@@ -22,4 +22,5 @@ Viz.Doc - документация VIZ
    escrow
    glossary
    contacts
+   contribute
 
