@@ -190,7 +190,7 @@
 
 Множитель для наценки количества [пропускной способности](./bandwidth.html), которую затратит аккаунт на отправку транзакций без ограничений по размеру (к таким транзакциям, например, относиться [custom-транзакция](./glossary.html#custom-transaction)).
 
-Это значит, что аккаунт затратит на отправку транзакции в ``data_operations_cost_additional_bandwidth`` раз больше байт, чем она весит на самом деле (``размер транзакции * data_operations_cost_additional_bandwidth``).
+Это значит, что аккаунт затратит на отправку транзакции в ``data_operations_cost_additional_bandwidth`` раз больше байт, чем она весит на самом деле (``размер транзакции * data_operations_cost_additional_bandwidth``). Смотрите раздел ["Наценка на безграничные транзакции"](./bandwidth.html#additional_bandwidth).
 
 ### witness_miss_penalty_percent
 
